@@ -1,9 +1,9 @@
 import { Fragment, useContext } from "react";
 import CategoryPreviewComponent from "../../Components/CategoryPreviewComponent/CategoryPreviewComponent";
 
-import { CategoriesContext } from "../../Contexts/CategoriesContext";
+import { CategoryContext } from "../../Contexts/CategoriesContext";
 const CategoriesPreview = () => {
-  const { categoriesMap } = useContext(CategoriesContext);
+  const { categoriesMap } = useContext(CategoryContext);
 
   console.log(categoriesMap);
   return (

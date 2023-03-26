@@ -14,6 +14,7 @@ const CheckOutItem = ({ cartItem }) => {
   };
   const clearItemHandler = () => {
     clearItemFromCart(cartItem);
+    
   };
   return (
     <div className="checkout-item-container">
