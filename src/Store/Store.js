@@ -3,7 +3,7 @@ import { compose, createStore, applyMiddleware } from "redux";
 import { rootReducer } from "./rootReducer";
 //root-reducer
 import storage from "redux-persist/lib/storage";
-import { persistReducer } from "redux-persist";
+import { persistReducer, persistStore } from "redux-persist";
 import thunk from "redux-thunk";
 const loggerMiddleware = (store) => (next) => (action) => {
   if (!action.type) {
@@ -34,3 +34,4 @@ export const store = createStore(
   undefined,
   composedEnhancers
 );
+export const persister = persistStore(store);
