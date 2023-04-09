@@ -33,6 +33,7 @@ const removeCartItem = (cartItems, productToRemove) => {
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id === productToRemove.id
   );
+
   if (existingCartItem.quantity === 1) {
     return cartItems.filter((cartItem) => cartItem.id !== productToRemove.id);
   }
