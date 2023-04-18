@@ -1,11 +1,15 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import { signInWithGooglePopup } from "../../Utils/firebaseUtils/firebaseutils";
+import { useDispatch } from "react-redux";
 import ButtonComponent, {
   BUTTON_TYPES_CLASSES,
 } from "../Button/ButtonComponent";
 import FormInput from "../FormInput/FormInput";
 import { ButtonsContainer, SignInContainer } from "./SignInstyles";
+import {
+  googleSignInStart,
+  emailSignInStart,
+} from "../../Store/User/user.action";
 
 const defaultFormFeild = {
   email: "",
@@ -13,11 +17,12 @@ const defaultFormFeild = {
 };
 
 const SignInForm = () => {
+  const dispatch = useDispatch();
   const [formFeild, setFormFeild] = useState(defaultFormFeild);
   const { email, password } = formFeild;
 
   const signInwithGoogle = async () => {
-    await signInWithGooglePopup();
+    dispatch(googleSignInStart());
   };
   const resetFormFeilds = () => {
     setFormFeild(defaultFormFeild);
@@ -30,7 +35,7 @@ const SignInForm = () => {
   const onSubmitHandle = async (event) => {
     event.preventDefault();
     try {
-      const response = await signInWithEmailAndPassword(email, password);
+      dispatch(emailSignInStart(email, password));
       resetFormFeilds();
     } catch (error) {
       switch (error.code) {
@@ -57,6 +62,7 @@ const SignInForm = () => {
           label="Email"
           required
           type="email"
+          name="email"
           value={email}
           onChange={handleChange}
         />
@@ -66,17 +72,20 @@ const SignInForm = () => {
           required
           type="password"
           value={password}
+          name="password"
           onChange={handleChange}
         />
+
         <ButtonsContainer>
           <ButtonComponent buttonType={BUTTON_TYPES_CLASSES.base} type="submit">
             SignIn
           </ButtonComponent>
+
           <ButtonComponent
             onClick={signInwithGoogle}
             buttonType={BUTTON_TYPES_CLASSES.google}
           >
-            SignIn with Google
+            Google SignIn
           </ButtonComponent>
         </ButtonsContainer>
       </form>
