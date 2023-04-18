@@ -2,7 +2,9 @@ import { compose, createStore, applyMiddleware } from "redux";
 // import logger from "redux-logger";
 import { rootReducer } from "./rootReducer";
 //root-reducer
-
+import storage from "redux-persist/lib/storage";
+import { persistReducer, persistStore } from "redux-persist";
+import thunk from "redux-thunk";
 const loggerMiddleware = (store) => (next) => (action) => {
   if (!action.type) {
     return next(action);
@@ -16,7 +18,20 @@ const loggerMiddleware = (store) => (next) => (action) => {
   console.log("next state", store.getState());
 };
 
-const middlewares = [loggerMiddleware];
+const persistConfig = {
+  key: "root",
+  storage,
+  blacklist: ["user"],
+};
+
+const presistedReducer = persistReducer(persistConfig, rootReducer);
+
+const middlewares = [loggerMiddleware, thunk];
 const composedEnhancers = compose(applyMiddleware(...middlewares));
 
-export const store = createStore(rootReducer, undefined, composedEnhancers);
+export const store = createStore(
+  presistedReducer,
+  undefined,
+  composedEnhancers
+);
+export const persister = persistStore(store);
