@@ -10,7 +10,7 @@ import Home from "./Routes/Home/Home";
 import Auth from "./Routes/Authentication/Auth";
 import Shop from "./Routes/Shop/Shop";
 import CheckOut from "./Components/CheckOutComponent/CheckOut";
-import { setCurrentUser } from "./Store/User/user.action";
+import { setCurrentUser } from "./Store/User/user.reducer";
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -18,6 +18,7 @@ const App = () => {
       if (user) {
         createUserDocumentFromAuth(user);
       }
+      console.log(setCurrentUser(user));
       dispatch(setCurrentUser(user));
     });
     return unSubscribe;

@@ -1,0 +1,23 @@
+[33mcommit ae4be837a2d95180943194d760c368f91698d8ca[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/redux[m[33m, [m[1;32mredux[m[33m)[m
+Author: Sujith Kumar R <sujithkumar.sk175@gmail.com>
+Date:   Sun Apr 9 12:52:38 2023 +0530
+
+    feat:completed redux
+
+[33mcommit b2f3b887f996974503d35eb29378220d566ba84c[m[33m ([m[1;31morigin/reducer[m[33m, [m[1;32mreducer[m[33m)[m
+Author: Sujith Kumar R <sujithkumar.sk175@gmail.com>
+Date:   Sun Mar 26 21:00:49 2023 +0530
+
+    completed
+
+[33mcommit 7782e5804f7653421edfa1dc828d443a2b0ab87b[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Sujith Kumar R <sujithkumar.sk175@gmail.com>
+Date:   Fri Feb 17 15:48:22 2023 +0530
+
+    initial
+
+[33mcommit 1ad2e88188c691985d1c1e0e0fb820457e193dc6[m
+Author: Sujith Kumar R <sujithkumar.sk175@gmail.com>
+Date:   Sat Feb 11 12:11:14 2023 +0530
+
+    Initialize project using Create React App
