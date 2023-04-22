@@ -4,7 +4,7 @@ import CategoriesPreview from "../CategoriesPreview/CategoriesPreview";
 import Category from "../Category/Category";
 import { getCategoriesAndDocuments } from "../../Utils/firebaseUtils/firebaseutils";
 import { useDispatch } from "react-redux";
-import { setCategories } from "../../Store/Category/category.action";
+import { setCategories } from "../../Store/Category/category.reducer";
 const Shop = () => {
   const dispatch = useDispatch();
   useEffect(() => {

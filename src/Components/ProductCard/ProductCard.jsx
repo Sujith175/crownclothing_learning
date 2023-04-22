@@ -3,16 +3,14 @@ import ButtonComponent, {
   BUTTON_TYPES_CLASSES,
 } from "../Button/ButtonComponent";
 import { Footer, Price, ProductCartContainer, Name } from "./ProductCardStyles";
-import { selectCartItems } from "../../Store/Cart/cart.selector";
-import { addItemToCart } from "../../Store/Cart/cart.action";
-import { useDispatch, useSelector } from "react-redux";
+
+import { addItemToCart } from "../../Store/Cart/cart.reducer";
+import { useDispatch } from "react-redux";
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
-  const cartItems = useSelector(selectCartItems);
-  const addItemToCartHandler = () => {
-    dispatch(addItemToCart(cartItems, product));
-  };
+
+  const addItemToCartHandler = () => dispatch(addItemToCart(product));
 
   const { name, price, imageUrl } = product;
   return (
